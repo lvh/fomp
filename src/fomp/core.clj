@@ -18,10 +18,11 @@
   "
   [smtp-conf common-mail-params]
   (fn [recipients body]
-    (ps/send-message ^smtp-conf
-                     (into common-mail-params
-                           {:to recipients
-                            :body body}))))
+    (ps/send-message (with-meta
+                       (into common-mail-params
+                             {:to recipients
+                              :body body})
+                       smtp-conf))))
 
 (defn send-many
   "Sends a given template to many recipients.
