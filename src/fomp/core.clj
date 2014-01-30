@@ -6,8 +6,10 @@
 (defn make-body
   "Creates a body from markdown text suitable for giving to postal."
   [body-text]
-  [{:type "text/plain" :content body-text}
-   {:type "text/html; charset=utf-8"}])
+  [{:type "text/plain"
+    :content body-text}
+   {:type "text/html; charset=utf-8"
+    :content (md/md-to-html-string body-text)}])
 
 (defn send-many
   "Sends a given template string to many recipients using SMTP configuration
