@@ -31,4 +31,5 @@
             (let [body (make-body (ms/render tpl params))]
               (conj results (into {:to recipients}
                                   (send recipients body)))))
+          []
           recipients-with-params))
