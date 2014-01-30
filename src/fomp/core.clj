@@ -12,7 +12,10 @@
     :content (md/md-to-html-string md-body-text)}])
 
 (defn make-send
-  "Makes a send function suitable for use with send-many."
+  "Makes a send function suitable for use with send-many.
+
+  common-mail-params should at least include :subject and :from.
+  "
   [smtp-conf common-mail-params]
   (fn [recipients body]
     (ps/send-message ^smtp-conf
