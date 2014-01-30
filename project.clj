@@ -6,7 +6,8 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [de.ubercode.clostache/clostache "1.3.1"]
                  [markdown-clj "0.9.41"]
-                 [com.draines/postal "1.11.1"]]
+                 [com.draines/postal "1.11.1"]
+                 [clojure-csv/clojure-csv "2.0.1"]]
   :main ^:skip-aot fomp.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
