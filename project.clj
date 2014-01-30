@@ -4,7 +4,9 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [de.ubercode.clostache/clostache "1.3.1"]]
+                 [de.ubercode.clostache/clostache "1.3.1"]
+                 [markdown-clj "0.9.41"]
+                 [com.draines/postal "1.11.1"]]
   :main ^:skip-aot fomp.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
