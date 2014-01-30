@@ -6,11 +6,14 @@
 
   Like a regular CSV, but throws away the second line, because that
   just contains a bunch of 'CONFIDENTIAL' markers.
+
+  Empty rows are ignored.
   "
   [s]
   (let [[header-strs junk-line & rows] (parse-csv s)
+        rows (remove #(every? empty? %) rows)
         header (map keyword header-strs)]
-     (map (partial zipmap header) rows)))
+    (into #{} (map (partial zipmap header) rows))))
 
 (defn sponsors-to-recipients-with-params
   [sponsors]
