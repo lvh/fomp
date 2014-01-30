@@ -5,7 +5,7 @@ makes when it does so; not dissimilar from the sound of a t-shirt gun.
 
 Fomp! Fomp fomp fomp fomp.
 
-![Fomp logo][https://dl.dropboxusercontent.com/u/38476311/Logos/fomp.png]
+![Fomp logo](https://dl.dropboxusercontent.com/u/38476311/Logos/fomp.png)
 
 ## Usage
 
