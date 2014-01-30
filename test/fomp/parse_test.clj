@@ -45,3 +45,10 @@
     (is (= (parse-sponsor-csv sample-sponsor-csv-with-empty-lines)
            #{(:data lvh)
              (:data ewa)}))))
+
+(deftest sponsors-to-recipients-with-params-tests
+  (testing "turns two sponsors into an appropriate seq"
+    (is (= (sponsors-to-recipients-with-params #{(:data lvh)
+                                                 (:data ewa)})
+           #{[(:Email (:data lvh)) (:data lvh)]
+             [(:Email (:data ewa)) (:data ewa)]}))))

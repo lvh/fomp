@@ -18,5 +18,6 @@
 (defn sponsors-to-recipients-with-params
   [sponsors]
   (reduce (fn [result sponsor]
-            (into result [(:Email sponsor) sponsor]))
+            (conj result [(:Email sponsor) sponsor]))
+          #{}
           sponsors))
