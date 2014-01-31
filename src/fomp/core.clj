@@ -6,7 +6,8 @@
 (defn make-body
   "Creates a body from markdown text suitable for giving to postal."
   [md-body-text]
-  [{:type "text/plain"
+  [:alternative
+   {:type "text/plain"
     :content md-body-text}
    {:type "text/html; charset=utf-8"
     :content (md/md-to-html-string md-body-text)}])

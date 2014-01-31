@@ -5,7 +5,8 @@
 (deftest make-body-tests
   (testing "empty body"
     (is (= (make-body "")
-           [{:type "text/plain"
+           [:alternative
+            {:type "text/plain"
              :content ""}
             {:type "text/html; charset=utf-8"
              :content ""}]))))
