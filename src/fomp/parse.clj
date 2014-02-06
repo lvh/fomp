@@ -1,5 +1,6 @@
 (ns fomp.parse
-  [:require [clojure-csv.core :refer [parse-csv]]])
+  [:require [clojure-csv.core :refer [parse-csv]]]
+  [:require [clojure.string :refer [split trim]]])
 
 (defn parse-sponsor-csv
   "Parses a sponsor CSV.
@@ -15,9 +16,15 @@
         header (map keyword header-strs)]
     (into #{} (map (partial zipmap header) rows))))
 
+(defn parse-addresses
+  "Splits a list of comma-separated things (e-mail addresses)."
+  [addresses]
+  (map trim (split addresses #",")))
+
 (defn sponsors-to-recipients-with-params
   [sponsors]
   (reduce (fn [result sponsor]
-            (conj result [(:Email sponsor) sponsor]))
+            (let [recipients (parse-addresses (:Email sponsor))]
+                (conj result [recipients sponsor])))
           #{}
           sponsors))
